@@ -124,7 +124,7 @@ public function addField($name, $label)
 Class **Form** dipakai untuk membuat form secara otomatis.
 `addField()` menambah input ke dalam form, sedangkan `displayForm()` menampilkan form beserta semua field yang sudah ditambahkan. Constructor mengatur action dan tulisan tombol submit.
 
-## form_input.php
+## Form_input.php
 ```php
 <?php
 /**
@@ -150,7 +150,7 @@ Program ini menggunakan class Form dari file form.php untuk membuat form input s
 <img width="967" height="540" alt="image" src="https://github.com/user-attachments/assets/0d28e999-caa4-4add-85d7-9ccf37a7f74e" />
 
 
-## database.php
+## Database.php
 ```php
 <?php
 
