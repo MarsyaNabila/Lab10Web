@@ -43,7 +43,7 @@ class Mobil {
 
 // membuat objek mobil
 $a = new Mobil(); 
-$b = new Mobil("Hijau", "Toyota", 150000000);
+$b = new Mobil("Hijau", "Toyota", 10000000);
 ?>
 
 <!DOCTYPE html>
@@ -82,17 +82,15 @@ $b = new Mobil("Hijau", "Toyota", 150000000);
 </body>
 </html>
 
+
 ```
 
 
-Program tersebut membuat sebuah class bernama *Mobil* yang memiliki tiga properti: warna, merk, dan harga. Constructor di dalam class otomatis memberi nilai awal ketika object dibuat, yaitu warna Biru, merk BMW, dan harga 10000000.
+Kode tersebut membuat sebuah class bernama Mobil yang memiliki properti warna, merk, dan harga. Constructor memberi nilai default ketika object dibuat, sedangkan method gantiWarna() digunakan untuk mengubah warna mobil. Method info() mengembalikan informasi lengkap tentang mobil dalam bentuk teks.
 
-Class ini memiliki dua fungsi: *gantiWarna()* untuk mengubah warna mobil, dan *tampilWarna()* untuk menampilkan warna mobil.
+Setelah class dibuat, program membuat dua object: mobil pertama menggunakan nilai default, dan mobil kedua dengan warna Hijau dan merk Toyota. Di bagian HTML, nilai properti mobil pertama ditampilkan, lalu warnanya diubah menjadi Merah dan ditampilkan kembali. Mobil kedua juga ditampilkan bersama informasi lengkapnya melalui method info().
 
-Kemudian program membuat dua object, yaitu `$a` dan `$b`. Mobil pertama awalnya berwarna Biru, lalu diubah menjadi Merah. Mobil kedua langsung diganti warnanya menjadi Hijau. Setiap object memiliki data sendiri, sehingga perubahan pada mobil pertama tidak
-mempengaruhi mobil kedua.
-
-<img width="681" height="533" alt="image" src="https://github.com/user-attachments/assets/bc3a4a64-aefc-4f55-afc9-71123e9fc848" />
+<img width="958" height="765" alt="image" src="https://github.com/user-attachments/assets/6b236cb5-2681-409a-8ccd-477d122786f3" />
 
 
 ## Form.php
@@ -158,9 +156,16 @@ echo "</body></html>";
 ?>
 ```
 
-Program ini menggunakan class Form dari file form.php untuk membuat form input secara otomatis. Setelah file form.php di-include, program membuat object Form dengan action dan teks tombol submit. Kemudian tiga field ditambahkan: NIM, Nama, dan Alamat. Setelah itu, program menampilkan judul lalu memanggil displayForm() untuk menampilkan form lengkap ke halaman HTML. Form ini nantinya akan mengirim data sesuai field yang telah dibuat.
+Baik, ini versi **sedang**, tidak terlalu panjang dan tetap jelas:
 
-<img width="967" height="540" alt="image" src="https://github.com/user-attachments/assets/0d28e999-caa4-4add-85d7-9ccf37a7f74e" />
+---
+
+Kode tersebut menampilkan form dengan memanfaatkan class **Form** dari file *form.php*. Setelah file tersebut di-include, halaman HTML dibuat dan style.css digunakan untuk memberi tampilan. Di dalam card, program membuat object Form, lalu menambahkan tiga field yaitu NIM, Nama, dan Alamat. Method **displayForm()** dipanggil untuk menampilkan form secara otomatis sesuai struktur yang ada di class Form.
+
+Setelah form dikirim, halaman mendeteksi request POST. Jika ada data yang masuk, bagian bawah akan menampilkan kembali semua data yang dikirim oleh pengguna dalam bentuk daftar. Dengan cara ini, halaman berfungsi sebagai form input sekaligus menampilkan hasil input menggunakan konsep OOP dan modularisasi.
+
+
+<img width="955" height="745" alt="image" src="https://github.com/user-attachments/assets/f6060319-5fb5-46f6-9a11-ed36d669e27f" />
 
 
 ## Database.php
@@ -254,9 +259,14 @@ public function delete($table, $filter) {
 
 
 
-# Pertanyaan dan Tugas
+## Pertanyaan dan Tugas
 Implementasikan konsep modularisasi pada kode program pada praktukum sebelumnya
 dengan menggunakan class library untuk form dan database connection.
+
+## Hasi
+
+<img width="958" height="902" alt="image" src="https://github.com/user-attachments/assets/879a8aa9-b789-465f-805a-124a80f6cdbd" />
+
 
 
 
