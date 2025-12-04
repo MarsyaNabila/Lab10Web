@@ -21,48 +21,67 @@ Matakuliah: Pemograman Web 1
 
 ```php
 <?php
-/**
-* Program sederhana pendefinisian class dan pemanggilan class.
-**/
+class Mobil {
+    public $warna;
+    public $merk;
+    public $harga;
 
-class Mobil
-{
-    private $warna;
-    private $merk;
-    private $harga;
-    
-    public function __construct()
-    {
-        $this->warna = "Biru";
-        $this->merk = "BMW";
-        $this->harga = "10000000";
+    public function __construct($warna="Biru", $merk="BMW", $harga="10000000") {
+        $this->warna = $warna;
+        $this->merk = $merk;
+        $this->harga = $harga;
     }
-public function gantiWarna ($warnaBaru)
-{
-    $this->warna = $warnaBaru;
+
+    public function gantiWarna($warnaBaru) {
+        $this->warna = $warnaBaru;
+    }
+
+    public function info() {
+        return "Merk: $this->merk, Warna: $this->warna, Harga: Rp " . number_format($this->harga, 0, ',', '.');
+    }
 }
-public function tampilWarna ()
-{
-    echo "Warna mobilnya : " . $this->warna;
-}
-}
+
 // membuat objek mobil
-$a = new Mobil();
-$b = new Mobil();
-// memanggil objek
-echo "<b>Mobil pertama</b><br>";
-$a->tampilWarna();
-echo "<br>Mobil pertama ganti warna<br>";
-$a->gantiWarna("Merah");
-$a->tampilWarna();
-
-
-// memanggil objek
-echo "<br><b>Mobil kedua</b><br>";
-$b->gantiWarna("Hijau");
-$b->tampilWarna();
-
+$a = new Mobil(); 
+$b = new Mobil("Hijau", "Toyota", 150000000);
 ?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Contoh Class Mobil</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1>Contoh Class Mobil</h1>
+
+    <!-- Mobil pertama -->
+    <h3>Mobil pertama</h3>
+    <p>Warna: <b style="color:#007bff;"><?php echo $a->warna; ?></b></p>
+
+    <?php $a->gantiWarna("Merah"); ?>
+
+    <p>Setelah ganti warna:</p>
+    <p>Warna: <b style="color:#d40046;"><?php echo $a->warna; ?></b></p>
+
+    <hr>
+
+    <!-- Mobil kedua -->
+    <h3>Mobil kedua</h3>
+    <p>Warna: <b style="color:#0f8b4c;"><?php echo $b->warna; ?></b></p>
+
+    <div class="btn" style="display:inline-block; background:#ff8bbd; color:#5a1a2e;">
+        <?php echo $b->info(); ?>
+    </div>
+
+</div>
+
+</body>
+</html>
+
 ```
 
 
@@ -79,41 +98,35 @@ mempengaruhi mobil kedua.
 ## Form.php
 ```php
 <?php
-/**
-* Nama Class: Form
-* Deskripsi: CLass untuk membuat form inputan text sederhan
-**/
-
-class Form
-{
+class Form {
     private $fields = array();
     private $action;
-    private $submit = "Submit Form";
+    private $submit = "Submit";
     private $jumField = 0;
-    public function __construct($action, $submit)
-    {
+
+    public function __construct($action, $submit) {
         $this->action = $action;
         $this->submit = $submit;
     }
-    public function displayForm()
-    {
+
+    public function addField($name, $label) {
+        $this->fields[$this->jumField]['name']  = $name;
+        $this->fields[$this->jumField]['label'] = $label;
+        $this->jumField++;
+    }
+
+    public function displayForm() {
         echo "<form action='".$this->action."' method='POST'>";
-        echo '<table width="100%" border="0">';
-        for ($j=0; $j<count($this->fields); $j++) {
-            echo                                           "<tr><td
-align='right'>".$this->fields[$j]['label']."</td>";
-           echo                  "<td><input            type='text'
-name='".$this->fields[$j]['name']."'></td></tr>";
-}
-echo "<tr><td colspan='2'>";
-echo "<input type='submit' value='".$this->submit."'></td></tr>";
-echo "</table>";
-}
-public function addField($name, $label)
-{
-    $this->fields [$this->jumField]['name'] = $name;
-    $this->fields [$this->jumField]['label'] = $label;
-    $this->jumField ++;
+        echo "<table border='0' width='100%'>";
+        for ($i = 0; $i < count($this->fields); $i++) {
+            echo "<tr>
+                    <td align='right'>".$this->fields[$i]['label']."</td>
+                    <td><input type='text' name='".$this->fields[$i]['name']."'></td>
+                  </tr>";
+        }
+        echo "<tr><td colspan='2'><input type='submit' value='".$this->submit."'></td></tr>";
+        echo "</table>";
+        echo "</form>";
     }
 }
 ?>
