@@ -239,7 +239,7 @@ public function delete($table, $filter) {
 ```
 
 
-Class **Database** dibuat untuk mengatur koneksi ke MySQL dan menjalankan operasi dasar seperti mengambil data, menambah, mengubah, dan menghapus. Constructor membuka koneksi menggunakan konfigurasi dari *config.php*. Method seperti **get()**, **insert()**, **update()**, dan **delete()** digunakan untuk menjalankan query sesuai kebutuhan tanpa harus menulis ulang kode koneksi.
+
 
 # Pertanyaan dan Tugas
 Implementasikan konsep modularisasi pada kode program pada praktukum sebelumnya
