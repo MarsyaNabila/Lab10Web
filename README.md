@@ -254,6 +254,14 @@ public function delete($table, $filter) {
 ```
 
 
+Kode tersebut membentuk sebuah class **Database** yang digunakan untuk menangani koneksi ke MySQL dan menjalankan perintah SQL. Pada bagian constructor, class memanggil fungsi *getConfig()* untuk mengambil data konfigurasi dari file config.php, seperti host, username, password, dan nama database. Setelah itu dibuat koneksi menggunakan `mysqli`, dan apabila gagal maka program langsung dihentikan.
+
+Class ini menyediakan beberapa fungsi untuk kebutuhan database. Fungsi *query()* menjalankan perintah SQL secara langsung. Fungsi *get()* mengambil satu baris data dari tabel, dengan kondisi opsional. Fungsi *insert()* menyimpan data baru ke tabel dengan cara membentuk query berdasarkan array yang diberikan. Fungsi *update()* mengubah data sesuai kondisi, sedangkan fungsi *delete()* menghapus data berdasarkan filter tertentu.
+
+Dengan class ini, semua operasi database bisa dilakukan secara lebih rapi dan terstruktur tanpa harus menulis ulang koneksi dan query di setiap file.
+
+
+
 
 
 ## Pertanyaan dan Tugas
