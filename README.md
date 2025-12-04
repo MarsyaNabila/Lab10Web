@@ -156,9 +156,6 @@ echo "</body></html>";
 ?>
 ```
 
-Baik, ini versi **sedang**, tidak terlalu panjang dan tetap jelas:
-
----
 
 Kode tersebut menampilkan form dengan memanfaatkan class **Form** dari file *form.php*. Setelah file tersebut di-include, halaman HTML dibuat dan style.css digunakan untuk memberi tampilan. Di dalam card, program membuat object Form, lalu menambahkan tiga field yaitu NIM, Nama, dan Alamat. Method **displayForm()** dipanggil untuk menampilkan form secara otomatis sesuai struktur yang ada di class Form.
 
